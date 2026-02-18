@@ -1,0 +1,56 @@
+# =========================================
+# General rules for all bots
+# =========================================
+User-agent: *
+# Block WordPress admin and includes
+Disallow: /wp-admin/
+Disallow: /wp-includes/
+# Block WordPress REST API (REST Route Blocked)
+Disallow: /wp-json/
+# Block WooCommerce sensitive files
+Disallow: /wp-content/uploads/wc-logs/
+Disallow: /wp-content/uploads/woocommerce_transient_files/
+Disallow: /wp-content/uploads/woocommerce_uploads/
+# Block URL parameters (URL Parameters Blocked)
+Disallow: /?*
+# Block search pages and feeds
+Disallow: /search/
+Disallow: /feed/
+Disallow: /comments/feed/
+# Block generic bad bots (Bad Bots Blocked)
+Disallow: /badbot/
+# Crawl delay
+Crawl-delay: 10
+# Allow AJAX
+Allow: /wp-admin/admin-ajax.php
+# Allow pagination
+Allow: /page/
+# Sitemap
+https://julian-date-today.netlify.app/sitemap.xml
+
+# =========================================
+# Specific crawler rules
+# =========================================
+# Googlebot explicitly allowed
+User-agent: Googlebot
+Allow: /
+
+# Block specific crawlers
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: Moz
+Disallow: /
+
+User-agent: Xenu
+Disallow: /
+
+# Block WayBack Machine (archive.org)
+User-agent: archive.org_bot
+Disallow: /
