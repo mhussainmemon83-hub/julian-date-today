@@ -3,7 +3,123 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Julian Date Calculator</title>
+
+<!-- ✅ META TITLE -->
+<title>Julian Date Calculator – Live JD, MJD & J2000 Converter Online</title>
+
+<!-- ✅ META DESCRIPTION -->
+<meta name="description" content="Calculate today's Julian Date (JD) instantly with our live online tool. Convert any date to Julian Date, Modified Julian Date (MJD), J2000 epoch, and Unix timestamp in real-time. Free astronomical date calculator.">
+
+<!-- ✅ META KEYWORDS -->
+<meta name="keywords" content="julian date calculator, julian date today, JD converter, modified julian date, MJD, J2000, astronomical date, live julian date, unix timestamp converter">
+
+<!-- ✅ ROBOTS -->
+<meta name="robots" content="index, follow">
+<meta name="author" content="Julian Date Calculator">
+
+<!-- ✅ CANONICAL TAG -->
+<link rel="canonical" href="https://julian-date-today.netlify.app/">
+
+<!-- ✅ OG TAGS (Facebook, WhatsApp, LinkedIn) -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://julian-date-today.netlify.app/">
+<meta property="og:title" content="Julian Date Calculator – Live JD, MJD & J2000 Converter Online">
+<meta property="og:description" content="Calculate today's Julian Date (JD) instantly with our live online tool. Convert any date to Julian Date, Modified Julian Date (MJD), J2000 epoch, and Unix timestamp in real-time. Free astronomical date calculator.">
+<meta property="og:image" content="https://julian-date-today.netlify.app/og-image.png">
+<meta property="og:site_name" content="Julian Date Calculator">
+<meta property="og:locale" content="en_US">
+
+<!-- ✅ TWITTER CARD TAGS -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://julian-date-today.netlify.app/">
+<meta name="twitter:title" content="Julian Date Calculator – Live JD, MJD & J2000 Converter Online">
+<meta name="twitter:description" content="Calculate today's Julian Date (JD) instantly. Convert any date to Julian Date, MJD, J2000 epoch and Unix timestamp. Free online astronomical calculator.">
+<meta name="twitter:image" content="https://julian-date-today.netlify.app/og-image.png">
+
+<!-- ✅ SCHEMA MARKUP — WebApplication -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Julian Date Calculator",
+  "url": "https://julian-date-today.netlify.app/",
+  "description": "Calculate today's Julian Date (JD) instantly with our live online tool. Convert any date to Julian Date, Modified Julian Date (MJD), J2000 epoch, and Unix timestamp in real-time.",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Any",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "featureList": [
+    "Live Julian Date display",
+    "Modified Julian Date (MJD) conversion",
+    "J2000 Epoch calculation",
+    "Unix Timestamp display",
+    "Custom date to Julian Date converter"
+  ],
+  "browserRequirements": "Requires JavaScript",
+  "inLanguage": "en",
+  "isAccessibleForFree": true
+}
+</script>
+
+<!-- ✅ SCHEMA MARKUP — BreadcrumbList -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://julian-date-today.netlify.app/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Julian Date Calculator",
+      "item": "https://julian-date-today.netlify.app/"
+    }
+  ]
+}
+</script>
+
+<!-- ✅ SCHEMA MARKUP — FAQPage -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is Julian Date?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Julian Date (JD) is a continuous count of days since the beginning of the Julian Period on January 1, 4713 BC at noon Universal Time. It is widely used in astronomy."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is Modified Julian Date (MJD)?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Modified Julian Date (MJD) is Julian Date minus 2400000.5. It starts at midnight instead of noon and uses smaller numbers for convenience."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is J2000.0?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "J2000.0 is a standard astronomical epoch corresponding to Julian Date 2451545.0, which is January 1.5, 2000 (noon on January 1, 2000 UTC)."
+      }
+    }
+  ]
+}
+</script>
+
 <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Bebas+Neue&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -30,7 +146,6 @@
     overflow-x: hidden;
   }
 
-  /* Star field */
   body::before {
     content: '';
     position: fixed;
@@ -57,10 +172,7 @@
     padding: 20px;
   }
 
-  header {
-    text-align: center;
-    margin-bottom: 40px;
-  }
+  header { text-align: center; margin-bottom: 40px; }
 
   .title {
     font-family: 'Bebas Neue', sans-serif;
@@ -88,7 +200,6 @@
     margin-top: 8px;
   }
 
-  /* Main JD Display */
   .jd-display {
     background: var(--panel);
     border: 1px solid var(--border);
@@ -122,13 +233,9 @@
     color: #ffffff;
     line-height: 1;
     text-shadow: 0 0 40px rgba(0,200,255,0.3);
-    transition: all 0.1s;
   }
 
-  .jd-fraction {
-    color: var(--accent);
-    font-size: 0.55em;
-  }
+  .jd-fraction { color: var(--accent); font-size: 0.55em; }
 
   .jd-desc {
     font-size: 11px;
@@ -137,7 +244,6 @@
     letter-spacing: 1px;
   }
 
-  /* Info Grid */
   .grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -180,7 +286,6 @@
 
   .card-value.highlight { color: var(--accent2); }
 
-  /* Custom Date Input */
   .converter {
     background: var(--panel);
     border: 1px solid var(--border);
@@ -236,10 +341,7 @@
     transition: all 0.2s;
   }
 
-  .btn:hover {
-    background: var(--accent);
-    color: var(--bg);
-  }
+  .btn:hover { background: var(--accent); color: var(--bg); }
 
   .result-row {
     margin-top: 14px;
@@ -254,7 +356,6 @@
   .result-label { font-size: 10px; color: var(--dim); letter-spacing: 2px; }
   .result-value { font-size: 22px; font-weight: 700; color: #fff; letter-spacing: 2px; }
 
-  /* Pulse dot */
   .live-indicator {
     display: inline-flex;
     align-items: center;
@@ -362,22 +463,13 @@
 
 <script>
   function getJD(date) {
-    // Standard Julian Date formula
     const ms = date.getTime();
     return ms / 86400000 + 2440587.5;
   }
 
-  function getMJD(jd) {
-    return jd - 2400000.5;
-  }
-
-  function getJ2000(jd) {
-    return jd - 2451545.0;
-  }
-
-  function fmt(num, decimals) {
-    return num.toFixed(decimals);
-  }
+  function getMJD(jd) { return jd - 2400000.5; }
+  function getJ2000(jd) { return jd - 2451545.0; }
+  function fmt(num, decimals) { return num.toFixed(decimals); }
 
   function update() {
     const now = new Date();
@@ -385,27 +477,21 @@
     const mjd = getMJD(jd);
     const j2000 = getJ2000(jd);
 
-    // Split JD into integer and decimal
     const jdStr = jd.toFixed(5);
     const dotIdx = jdStr.indexOf('.');
-    const intPart = jdStr.substring(0, dotIdx);
-    const fracPart = jdStr.substring(dotIdx); // includes dot
 
-    document.getElementById('jd-int').textContent = intPart;
-    document.getElementById('jd-frac').textContent = fracPart;
+    document.getElementById('jd-int').textContent = jdStr.substring(0, dotIdx);
+    document.getElementById('jd-frac').textContent = jdStr.substring(dotIdx);
     document.getElementById('mjd').textContent = fmt(mjd, 5);
     document.getElementById('unix-ts').textContent = Math.floor(now.getTime() / 1000);
     document.getElementById('j2000').textContent = fmt(j2000, 5);
-
-    // UTC time
-    const utc = now.toUTCString().replace('GMT', 'UTC');
-    document.getElementById('utc-time').textContent = utc;
+    document.getElementById('utc-time').textContent = now.toUTCString().replace('GMT', 'UTC');
   }
 
   function convertDate() {
     const val = document.getElementById('date-input').value;
     if (!val) return;
-    const d = new Date(val + 'T12:00:00Z'); // noon UTC for pure date
+    const d = new Date(val + 'T12:00:00Z');
     const jd = getJD(d);
     const mjd = getMJD(jd);
     document.getElementById('conv-jd').textContent = fmt(jd, 1);
@@ -419,11 +505,9 @@
     convertDate();
   }
 
-  // Set default date input to today
   document.getElementById('date-input').value = new Date().toISOString().split('T')[0];
-
   update();
-  setInterval(update, 100); // update every 100ms for live feel
+  setInterval(update, 100);
 </script>
 </body>
 </html>
